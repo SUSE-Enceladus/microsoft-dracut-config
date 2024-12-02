@@ -1,0 +1,1 @@
+# microsoft-dracut-config
