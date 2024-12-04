@@ -37,26 +37,28 @@ BuildArch:      noarch
 %build
 
 %install
-install -D -m 644 etc/dracut.conf.d/07-nvme.conf \
-    %{buildroot}%{_sysconfdir}/dracut.conf.d/07-nvme.conf
-install -D -m 644 etc/dracut.conf.d/07-ext4.conf \
-    %{buildroot}%{_sysconfdir}/dracut.conf.d/07-ext4.conf
-install -D -m 644 etc/dracut.conf.d/07-virtio.conf \
-    %{buildroot}%{_sysconfdir}/dracut.conf.d/07-virtio.conf
-install -D -m 644 etc/dracut.conf.d/07-xfs.conf \
-    %{buildroot}%{_sysconfdir}/dracut.conf.d/07-xfs.conf
-install -D -m 644 etc/dracut.conf.d/11-resume.conf \
-    %{buildroot}%{_sysconfdir}/dracut.conf.d/11-resume.conf
+install -D -m 644 usr/lib/dracut/dracut.conf.d/07-nvme.conf \
+    %{buildroot}%{_libexecdir}dracut/dracut.conf.d/07-nvme.conf
+install -D -m 644 usr/lib/dracut/dracut.conf.d/07-ext4.conf \
+    %{buildroot}%{_libexecdir}dracut/dracut.conf.d/07-ext4.conf
+install -D -m 644 usr/lib/dracut/dracut.conf.d/07-virtio.conf \
+    %{buildroot}%{_libexecdir}dracut/dracut.conf.d/07-virtio.conf
+install -D -m 644 usr/lib/dracut/dracut.conf.d/07-xfs.conf \
+    %{buildroot}%{_libexecdir}dracut/dracut.conf.d/07-xfs.conf
+install -D -m 644 usr/lib/dracut/dracut.conf.d/11-resume.conf \
+    %{buildroot}%{_libexecdir}dracut/dracut.conf.d/11-resume.conf
 
 %check
 
 %files
 %doc README.md
 %license LICENSE
-%config %{_sysconfdir}/dracut.conf.d/07-nvme.conf
-%config %{_sysconfdir}/dracut.conf.d/07-ext4.conf
-%config %{_sysconfdir}/dracut.conf.d/07-virtio.conf
-%config %{_sysconfdir}/dracut.conf.d/07-xfs.conf
-%config %{_sysconfdir}/dracut.conf.d/11-resume.conf
+%dir %{_libexecdir}dracut/
+%dir %{_libexecdir}dracut/dracut.conf.d/
+%{_libexecdir}dracut/dracut.conf.d/07-nvme.conf
+%{_libexecdir}dracut/dracut.conf.d/07-ext4.conf
+%{_libexecdir}dracut/dracut.conf.d/07-virtio.conf
+%{_libexecdir}dracut/dracut.conf.d/07-xfs.conf
+%{_libexecdir}dracut/dracut.conf.d/11-resume.conf
 
 %changelog
